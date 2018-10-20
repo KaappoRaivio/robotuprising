@@ -7,14 +7,20 @@ import sys
 import time
 import paho.mqtt.client as mqtt
 
+import precgyro
 
 
+
+
+
+ROTATION_ERROR_MARGIN = 5.0
 
 # phi_dot_X : angular speed of motor X
 # r : wheel radius
 # gamma_gbl : heading direction, actually not needed for navigation
 # theta_gbl : angle between first wheel and the heading direction
 # R = robot center to wheel centre dist
+
 
 class Driver:
 
@@ -207,6 +213,8 @@ class Driver:
 
 
     def drive_by_loc_rot(self, rot, duration):
+        rot_before = precgyro.angle()
+
         print("encoder before A/B/C: ", driver.mA.position, driver.mB.position, driver.mC.position)
 
         dtheta_loc = rot / 360 * 2 * pi
@@ -227,6 +235,14 @@ class Driver:
 
         # clear up state after moving
         self.theta_dot_loc = 0
+
+        rot_after = precgyro.angle()
+        error = rot_after - rot_before + rot
+
+        if abs(error) > ROTATION_ERROR_MARGIN:
+            self.drive_by_loc_rot(error, 0.5)
+
+
         print("encoder after A/B/C: ", driver.mA.position, driver.mB.position, driver.mC.position)
 
 
@@ -461,7 +477,10 @@ def on_message(client, userdata, msg):
   elif m.split(".")[0] == 'release':
     driver.motor_grabber.run_to_abs_pos(position_sp=0, speed_sp=driver.motor_grabber.count_per_rot)
 
-    pass
+  elif m.split(".")[0] == "reset_rotation":
+    driver.drive_by_loc_rot(precgyro.angle(), max(precgyro.angle()/10, 1.0))
+
+
 
 
 
@@ -470,6 +489,7 @@ mB = Motor()
 mC = Motor()
 driver = Driver(OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D)
 
+precgyro.reset()
 print("Hello world")
 print("================================================================================")
 

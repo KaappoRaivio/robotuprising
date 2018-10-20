@@ -6,6 +6,11 @@ import time
 import sys
 
 import termios
+
+
+
+
+
 from pynput import keyboard
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -98,6 +103,7 @@ def _onPress(key):
         client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_BIG} dt {TIME}")
     elif k == " ":
         client.publish("local", "manual_stop")
+
     elif k == "z":
         client.publish("local", "grab")
     elif k == "x":
@@ -120,6 +126,8 @@ def _onPress(key):
         client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP_SMALL} dt {TIME }")
     elif k == "y":
         client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_SMALL} dt {TIME }")
+    elif k == "o":
+        client.publish("local", "reset_rotation")
     time.sleep(TIME)
     # print(f"{key} pressed!")
 
