@@ -237,9 +237,9 @@ class Driver:
         self.theta_dot_loc = 0
 
         rot_after = precgyro.angle()
-        error = abs(rot_after - rot_before - rot)
+        error = rot_after - rot_before - rot
 
-        if error > ROTATION_ERROR_MARGIN:
+        if abs(error) > ROTATION_ERROR_MARGIN:
             self.drive_by_loc_rot(error, 0.5)
 
 
