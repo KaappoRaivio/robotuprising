@@ -197,7 +197,36 @@ class Driver:
         self.turn_motors_by_count(count_A, count_B, count_C, duration)
         #self.turn_motors_by_duration(duration)
 
+        # clean up state after moving
+        self.x_spd_loc = 0
+        self.y_spd_loc = 0
         print("encoder after A/B/C: ", driver.mA.position, driver.mB.position, driver.mC.position)
+
+
+
+    def drive_by_loc_rot(self, rot, duration):
+        print("encoder before A/B/C: ", driver.mA.position, driver.mB.position, driver.mC.position)
+
+        dtheta_loc = rot / 360 * 2 * pi
+        print("drive_by_rot rot, dtheta_loc: ", rot, dtheta_loc)
+
+        #import pdb; pdb.set_trace()
+        # rotation speed, the speed which EV3 rotate
+        r_spd = dtheta_loc / duration
+        self.theta_dot_loc = r_spd
+        print("r_spd: ", r_spd)
+        self.update_phi_dots_from_loc_vel()
+
+        count_A = self.phi_dot_A * duration * self.mA.count_per_rad
+        count_B = self.phi_dot_B * duration * self.mB.count_per_rad
+        count_C = self.phi_dot_C * duration * self.mC.count_per_rad
+        self.turn_motors_by_count(count_A, count_B, count_C, duration)
+        #self.turn_motors_by_duration(duration)
+
+        # clear up state after moving
+        self.theta_dot_loc = 0
+        print("encoder after A/B/C: ", driver.mA.position, driver.mB.position, driver.mC.position)
+
 
     # work in progress
     # test cmd
@@ -317,6 +346,8 @@ class Driver:
         print("checking if speed_sp is larger than 900")
         speed_max = 400
         speed_min = -400
+        speed_max = 1050
+        speed_min = -1050
         speed_sp_A = self.motor_A.count_per_rad * self.phi_dot_A
         speed_sp_B = self.motor_B.count_per_rad * self.phi_dot_B
         speed_sp_C = self.motor_C.count_per_rad * self.phi_dot_C
@@ -356,7 +387,7 @@ class Driver:
             self.mB.stop(stop_action='hold')
         if not self.mC.wait_until_not_moving(timeout=(duration+t_buffer)*1000):
             self.mC.stop(stop_action='hold')
-hi
+
         print("done moving")
 
 
@@ -397,14 +428,26 @@ def on_message(client, userdata, msg):
   #  client.disconnect()
   m = msg.payload.decode()
 
-  if "x" in m and len(m.split(" ")) > 3:
+  if m[0]=='x' in m and len(m.split(" ")) > 3:
     #driver.reset_spd_var()
-    print("move " + m)
+    print("received MQTT: " + m)
 
     dx = float(m.split(" ")[1].split(".")[0])
     dy = float(m.split(" ")[3].split(".")[0])
-    dt = float(m.split(" ")[5].split(".")[0])
+    rot = float(m.split(" ")[5].split(".")[0])
+    dt = float(m.split(" ")[7].split(".")[0])
+    print("taking action of MQTT cmd")
     driver.drive_by_loc_dxdy(dx, dy, dt)
+    driver.drive_by_loc_rot(rot, dt)
+    print("completed MQTT cmd")
+
+  elif m.split(".")[0] == 'manual_stop':
+    
+    driver.mA.stop(stop_action='hold')
+    driver.mB.stop(stop_action='hold')
+    driver.mC.stop(stop_action='hold')
+    client.reinitialise("iot.eclipse.org", 1883, 60)
+
 
 
 
