@@ -31,7 +31,7 @@ client.connect("iot.eclipse.org", 1883, 60)
 # manual interface.
 #client.publish("topic/test", "Hello world!")
 
-input_files = ["labyrinth.txt", "root.txt"]
+input_files = ["beginning_with_labyrinth_orientation.txt", "labyrinth.txt"]
 
 for f in input_files:
 
@@ -41,7 +41,7 @@ for f in input_files:
     for line in text.split("\n"):
 
         client.publish("local", line.strip())
-        time.sleep(2)
+        time.sleep(int(line.split(" ")[7].split(".")[0]))
 
 
 #client.loop_forever()
