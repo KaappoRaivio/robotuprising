@@ -468,7 +468,7 @@ def on_message(client, userdata, msg):
     driver.motor_grabber.run_to_abs_pos(position_sp=0, speed_sp=driver.motor_grabber.count_per_rot)
 
   elif m.split(".")[0] == "reset_rotation":
-    driver.drive_by_loc_rot(-precgyro.angle(), 1.0)
+    driver.drive_by_loc_rot(precgyro.angle(), max(precgyro.angle()/10, 1.0))
 
 
 
