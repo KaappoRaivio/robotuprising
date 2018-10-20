@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56f3a246-7d46-45fa-997e-903182920303" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" beforeDir="false" afterPath="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local/manual_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/local/manual_control.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,13 +55,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="9" />
-          <entry key="py" value="1484" />
+          <entry key="py" value="1497" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="Python" value="1484" />
+          <entry key="Python" value="1497" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -80,11 +78,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="488">
-              <caret line="469" column="51" lean-forward="true" selection-start-line="469" selection-start-column="51" selection-end-line="469" selection-end-column="51" />
+            <state relative-caret-position="135">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -92,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/local/manual_control.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="129" column="47" selection-start-line="129" selection-start-column="47" selection-end-line="129" selection-end-column="47" />
+            <state relative-caret-position="1470">
+              <caret line="98" column="64" selection-start-line="98" selection-start-column="64" selection-end-line="98" selection-end-column="64" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
                 <marker date="1540055759289" expanded="true" signature="117:118" ph="..." />
@@ -141,8 +139,8 @@
       <list>
         <option value="$PROJECT_DIR$/local/keyboardlistener.py" />
         <option value="$PROJECT_DIR$/local/precgyro.py" />
-        <option value="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" />
         <option value="$PROJECT_DIR$/local/manual_control.py" />
+        <option value="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" />
       </list>
     </option>
   </component>
@@ -302,23 +300,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py">
+    <entry file="file://$PROJECT_DIR$/local/manual_control.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="469" column="51" lean-forward="true" selection-start-line="469" selection-start-column="51" selection-end-line="469" selection-end-column="51" />
+        <state relative-caret-position="1470">
+          <caret line="98" column="64" selection-start-line="98" selection-start-column="64" selection-end-line="98" selection-end-column="64" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1540055759289" expanded="true" signature="117:118" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/manual_control.py">
+    <entry file="file://$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="129" column="47" selection-start-line="129" selection-start-column="47" selection-end-line="129" selection-end-column="47" />
+        <state relative-caret-position="135">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1540055759289" expanded="true" signature="117:118" ph="..." />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>

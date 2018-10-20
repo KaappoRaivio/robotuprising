@@ -7,7 +7,7 @@ import sys
 import time
 import paho.mqtt.client as mqtt
 
-from local import precgyro
+import ../local/precgyro
 
 
 
