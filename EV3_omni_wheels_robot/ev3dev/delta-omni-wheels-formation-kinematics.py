@@ -459,7 +459,7 @@ def on_message(client, userdata, msg):
     driver.drive_by_loc_rot(rot, dt)
     print("completed MQTT cmd")
 
-  elif m.split(".")[0] == 'manual_stop':
+  elif m.split(" ")[0] == 'manual_stop':
     print("received MQTT: manual_stop")
     print("taking action of MQTT cmd")
     driver.mA.stop(stop_action='hold')
@@ -470,15 +470,25 @@ def on_message(client, userdata, msg):
 
 
 
-  elif m.split(".")[0] == 'grab':
+  elif m.split(" ")[0] == 'grab':
     print("received MQTT: grab")
     driver.motor_grabber.run_to_abs_pos(position_sp=driver.motor_grabber.count_per_rot/-5, speed_sp=driver.motor_grabber.count_per_rot)
 
-  elif m.split(".")[0] == 'release':
+  elif m.split(" ")[0] == 'release':
     driver.motor_grabber.run_to_abs_pos(position_sp=0, speed_sp=driver.motor_grabber.count_per_rot)
 
-  elif m.split(".")[0] == "reset_rotation":
+  elif m.split(" ")[0] == "reset_rotation":
     driver.drive_by_loc_rot(precgyro.angle(), max(precgyro.angle()/10, 1.0))
+
+  elif m.split(" ")[0] == "wait":
+    print("received MQTT: wait")
+    time.sleep( float( m.split(" ")[-1] ) )
+
+  elif m.split(" ")[0] == "self_reset":
+    client.reinitialise("iot.eclipse.org", 1883, 60)
+    mA.reset()
+    mB.reset()
+    mC.reset()
 
 
 
