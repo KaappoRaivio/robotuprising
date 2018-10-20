@@ -42,6 +42,7 @@ handle = open("bl_input.txt")
 text = handle.read()
 
 STEP = 100.0
+ROT_STEP = 30.0
 
 def _onPress(key):
     try:
@@ -61,6 +62,10 @@ def _onPress(key):
     elif k == 'a':
         print(k)
         client.publish("local", f"x -{STEP} y 0.0 rot 0.0 dt 1.0")
+    elif k == "q":
+        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP} dt 1.0")
+    elif k == "e":
+        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP} dt 1.0")
 
     # print(f"{key} pressed!")
 
