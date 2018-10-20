@@ -19,4 +19,5 @@ def angle():
 
 if __name__ == "__main__":
 	reset()
-	print(angle())
+	while True:
+		print(angle())

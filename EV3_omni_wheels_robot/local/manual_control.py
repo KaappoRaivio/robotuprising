@@ -98,6 +98,7 @@ def _onPress(key):
         client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_BIG} dt {TIME}")
     elif k == " ":
         client.publish("local", "manual_stop")
+
     elif k == "z":
         client.publish("local", "grab")
     elif k == "x":
