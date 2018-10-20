@@ -7,6 +7,10 @@ import sys
 import time
 import paho.mqtt.client as mqtt
 
+from local import precgyro
+
+
+
 
 
 
@@ -15,6 +19,7 @@ import paho.mqtt.client as mqtt
 # gamma_gbl : heading direction, actually not needed for navigation
 # theta_gbl : angle between first wheel and the heading direction
 # R = robot center to wheel centre dist
+
 
 class Driver:
 
@@ -461,7 +466,10 @@ def on_message(client, userdata, msg):
   elif m.split(".")[0] == 'release':
     driver.motor_grabber.run_to_abs_pos(position_sp=0, speed_sp=driver.motor_grabber.count_per_rot)
 
-    pass
+  elif m.split(".")[0] == "reset_rotation":
+    driver.drive_by_loc_rot(-precgyro.angle(), 1.0)
+
+
 
 
 
@@ -470,6 +478,7 @@ mB = Motor()
 mC = Motor()
 driver = Driver(OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D)
 
+precgyro.reset()
 print("Hello world")
 print("================================================================================")
 
