@@ -1,5 +1,11 @@
+import tty
+
 import paho.mqtt.client as mqtt
 import time
+
+import sys
+
+import termios
 from pynput import keyboard
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -44,11 +50,32 @@ text = handle.read()
 STEP = 100.0
 ROT_STEP = 30.0
 
+
+fd = sys.stdin.fileno()
+old_settings = termios.tcgetattr(fd)
+
+def getch():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    tty.setcbreak(fd)
+    ch = sys.stdin.read(1)
+    termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+def cleanup():
+    fd = sys.stdin.fileno()
+    termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+
+
+
 def _onPress(key):
-    try:
-        k = key.char  # single-char keys
-    except:
-        k = key.name  # other keys
+    if not isinstance(key, str):
+        try:
+            k = key.char  # single-char keys
+        except:
+            k = key.name  # other keys
+    else:
+        k = key
 
     if k == "d":
         print(k)
@@ -83,8 +110,11 @@ def _onRelease(key):
     return True
 
 
-listener = keyboard.Listener(on_press=_onPress, on_release=_onRelease)
-listener.start()
-
-while True:
-    pass
+# listener = keyboard.Listener(on_press=_onPress, on_release=_onRelease)
+# listener.start()
+try:
+    while True:
+        key = getch()
+        _onPress(key)
+finally:
+    cleanup()

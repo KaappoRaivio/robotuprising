@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56f3a246-7d46-45fa-997e-903182920303" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/EV3_omni_wheels_robot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/EV3_omni_wheels_robot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/local/manual_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/local/manual_control.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,12 +52,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="560" />
+          <entry key="py" value="829" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="560" />
+          <entry key="Python" value="829" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -79,11 +77,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/local/manual_control.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="67" column="51" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
+            <state relative-caret-position="217">
+              <caret line="53" selection-start-line="53" selection-end-line="53" />
               <folding>
-                <element signature="e#0#31#0" expanded="true" />
-                <marker date="1540027279113" expanded="true" signature="72:73" ph="..." />
+                <element signature="e#0#10#0" expanded="true" />
+                <marker date="1540028108196" expanded="true" signature="112:113" ph="..." />
+                <marker date="1540028108196" expanded="true" signature="1517:1580" ph="..." />
               </folding>
             </state>
           </provider>
@@ -276,11 +275,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/local/manual_control.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="67" column="51" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
+        <state relative-caret-position="217">
+          <caret line="53" selection-start-line="53" selection-end-line="53" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <marker date="1540027279113" expanded="true" signature="72:73" ph="..." />
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1540028108196" expanded="true" signature="112:113" ph="..." />
+            <marker date="1540028108196" expanded="true" signature="1517:1580" ph="..." />
           </folding>
         </state>
       </provider>
