@@ -13,7 +13,7 @@ import precgyro
 
 
 
-
+ROTATION_ERROR_MARGIN = 5.0
 
 # phi_dot_X : angular speed of motor X
 # r : wheel radius
@@ -213,6 +213,8 @@ class Driver:
 
 
     def drive_by_loc_rot(self, rot, duration):
+        rot_before = precgyro.angle()
+
         print("encoder before A/B/C: ", driver.mA.position, driver.mB.position, driver.mC.position)
 
         dtheta_loc = rot / 360 * 2 * pi
@@ -233,6 +235,14 @@ class Driver:
 
         # clear up state after moving
         self.theta_dot_loc = 0
+
+        rot_after = precgyro.angle()
+        error = abs(rot_after - rot_before - rot)
+
+        if error > ROTATION_ERROR_MARGIN:
+            self.drive_by_loc_rot(error, 0.5)
+
+
         print("encoder after A/B/C: ", driver.mA.position, driver.mB.position, driver.mC.position)
 
 
