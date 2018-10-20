@@ -31,14 +31,17 @@ client.connect("iot.eclipse.org", 1883, 60)
 # manual interface.
 #client.publish("topic/test", "Hello world!")
 
+input_files = ["labyrinth.txt", "root.txt"]
 
-handle = open("bl_input.txt")    
-text = handle.read()
+for f in input_files:
 
-for line in text.split("\n"):
+    handle = open(f)    
+    text = handle.read()
 
-    client.publish("local", line.strip())
-    #time.sleep(2)
+    for line in text.split("\n"):
+
+        client.publish("local", line.strip())
+        time.sleep(2)
 
 
 #client.loop_forever()
