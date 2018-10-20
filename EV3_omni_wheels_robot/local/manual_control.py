@@ -95,6 +95,10 @@ def _onPress(key):
         client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP} dt 1.0")
     elif k == " ":
         client.publish("local", "manual_stop")
+    elif k == "r":
+        client.publish("local", "crab")
+    elif k == "f":
+        client.publish("local", "release")
 
     # print(f"{key} pressed!")
 
