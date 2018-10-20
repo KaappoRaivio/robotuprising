@@ -47,7 +47,7 @@ client.connect("iot.eclipse.org", 1883, 60)
 handle = open("bl_input.txt")    
 text = handle.read()
 
-STEP = 100.0
+STEP = 10000.0
 ROT_STEP = 30.0
 
 
@@ -93,6 +93,8 @@ def _onPress(key):
         client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP} dt 1.0")
     elif k == "e":
         client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP} dt 1.0")
+    elif k == " ":
+        client.publish("local", "manual_stop")
 
     # print(f"{key} pressed!")
 
