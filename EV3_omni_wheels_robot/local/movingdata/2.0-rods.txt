@@ -1,0 +1,15 @@
+x -155.0 y 0.0 rot 0.0 dt 11.6
+x 0.0 y 175.0 rot 0.0 dt 1.8
+x 0.0 y 0.0 rot 20 dt 0.2
+x 0.0 y 180.0 rot 0.0 dt 1.8
+x 0.0 y 0.0 rot -50 dt 0.5
+x 0.0 y 370.0 rot 0.0 dt 3.7
+x -430.0 y 0.0 rot 0.0 dt 4.3
+x 0.0 y 0.0 rot 95.0 dt 1.0
+x 0.0 y 565.0 rot 0.0 dt 5.7
+x 0.0 y 0.0 rot 120.0 dt 1.2
+x 0.0 y 400.0 rot 0.0 dt 4.0
+x 0.0 y 0.0 rot 45.0 dt 0.5
+x 0.0 y 370.0 rot 0.0 dt 3.7
+x 0.0 y 0.0 rot 100.0 dt 1.0
+x 0.0 y 1900.0 rot 0.0 dt 19.0
