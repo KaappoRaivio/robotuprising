@@ -240,7 +240,7 @@ class Driver:
         error = rot_after - rot_before - rot
 
         if abs(error) > ROTATION_ERROR_MARGIN:
-            self.drive_by_loc_rot(error, 0.5)
+            self.drive_by_loc_rot(-error, 0.5)
 
 
         print("encoder after A/B/C: ", driver.mA.position, driver.mB.position, driver.mC.position)
