@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="56f3a246-7d46-45fa-997e-903182920303" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" beforeDir="false" afterPath="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" afterDir="false" />
-    </list>
+    <list default="true" id="56f3a246-7d46-45fa-997e-903182920303" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,8 +79,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="239" column="40" selection-start-line="239" selection-start-column="40" selection-end-line="239" selection-end-column="40" />
+            <state relative-caret-position="546">
+              <caret line="242" column="34" selection-start-line="242" selection-start-column="34" selection-end-line="242" selection-end-column="34" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
                 <element signature="e#2952#5234#0" />
@@ -330,8 +328,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="239" column="40" selection-start-line="239" selection-start-column="40" selection-end-line="239" selection-end-column="40" />
+        <state relative-caret-position="546">
+          <caret line="242" column="34" selection-start-line="242" selection-start-column="34" selection-end-line="242" selection-end-column="34" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
             <element signature="e#2952#5234#0" />
