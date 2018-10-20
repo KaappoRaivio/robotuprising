@@ -1,0 +1,13 @@
+x 0.0 y -160.0 rot 0.0 dt 1.6
+x 0.0 y 0.0 rot 90.0 dt 0.9
+x 0.0 y -480.0 rot 0.0 dt 4.8
+grab
+release
+x 200.0 y 0.0 rot 0.0 dt 2.0
+x 0.0 y 0.0 rot 135.0 dt 1.4
+x 0.0 y 320.0 rot 0.0 dt 3.2
+x 0.0 y 0.0 rot 30.0 dt 0.3
+x 0.0 y 360.0 rot 0.0 dt 3.6
+x 0.0 y 0.0 rot 30.0 dt 0.3
+x 0.0 y 325.0 rot 0.0 dt 3.3
+[!] WIP [!] just entered first disk
