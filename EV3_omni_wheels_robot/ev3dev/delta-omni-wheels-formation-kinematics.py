@@ -442,12 +442,22 @@ def on_message(client, userdata, msg):
     print("completed MQTT cmd")
 
   elif m.split(".")[0] == 'manual_stop':
-    
+    print("received MQTT: manual_stop")
+    print("taking action of MQTT cmd")
     driver.mA.stop(stop_action='hold')
     driver.mB.stop(stop_action='hold')
     driver.mC.stop(stop_action='hold')
     client.reinitialise("iot.eclipse.org", 1883, 60)
+    print("completed MQTT cmd")
 
+
+  elif m.split(".")[0] == 'grap':
+    print("received MQTT: grap")
+    pass
+
+  elif m.split(".")[0] == 'release':
+    print("received MQTT: release")
+    pass
 
 
 
