@@ -120,7 +120,7 @@ def _onPress(key):
         client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP_SMALL} dt {TIME }")
     elif k == "y":
         client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_SMALL} dt {TIME }")
-
+    time.sleep(TIME)
     # print(f"{key} pressed!")
 
     return True
