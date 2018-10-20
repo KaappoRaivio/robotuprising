@@ -22,7 +22,7 @@ class Driver:
         def __init__(self, output):
             super().__init__(output)
 
-    def __init__(self, output_A, output_B, output_C):
+    def __init__(self, output_A, output_B, output_C, output_D):
         self.wheel_r = 58 / 2
         self.x_gbl = 0.0
         self.y_gbl = 0.0
@@ -48,10 +48,12 @@ class Driver:
         self.motor_A = self.OmniMotor(output_A)
         self.motor_B = self.OmniMotor(output_B)
         self.motor_C = self.OmniMotor(output_C)
+        self.motor_grabber = self.OmniMotor(output_D)
 
         self.mA = self.motor_A
         self.mB = self.motor_B
         self.mC = self.motor_C
+        self.mGrabber = self.motor_grabber
 
         print("count_per_rot of mA/B/C: ", self.mA.count_per_rot,
               self.mB.count_per_rot,
@@ -451,9 +453,10 @@ def on_message(client, userdata, msg):
     print("completed MQTT cmd")
 
 
-  elif m.split(".")[0] == 'grap':
-    print("received MQTT: grap")
-    pass
+
+  elif m.split(".")[0] == 'grab':
+    print("received MQTT: grab")
+    driver.motor_grabber.run_to_abs_pos(position_sp=driver.motor_grabber.count_per_rot/6, speed_sp=driver.motor_grabber.count_per_rot)
 
   elif m.split(".")[0] == 'release':
     print("received MQTT: release")
@@ -464,7 +467,7 @@ def on_message(client, userdata, msg):
 mA = Motor()
 mB = Motor()
 mC = Motor()
-driver = Driver(OUTPUT_A, OUTPUT_B, OUTPUT_C)
+driver = Driver(OUTPUT_A, OUTPUT_B, OUTPUT_C, OUTPUT_D)
 
 print("Hello world")
 print("================================================================================")

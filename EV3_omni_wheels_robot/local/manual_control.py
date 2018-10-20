@@ -47,8 +47,9 @@ client.connect("iot.eclipse.org", 1883, 60)
 handle = open("bl_input.txt")    
 text = handle.read()
 
-STEP = 10000.0
+STEP = 100.0
 ROT_STEP = 30.0
+TIME  = 1
 
 
 fd = sys.stdin.fileno()
@@ -79,24 +80,24 @@ def _onPress(key):
 
     if k == "d":
         print(k)
-        client.publish("local", f"x {STEP} y 0.0 rot 0.0 dt 1.0")
+        client.publish("local", f"x {STEP} y 0.0 rot 0.0 dt {TIME}")
     elif k == 'w':
         print(k)
-        client.publish("local", f"x 0.0 y {STEP} rot 0.0 dt 1.0")
+        client.publish("local", f"x 0.0 y {STEP} rot 0.0 dt {TIME}")
     elif k == 's':
         print(k)
-        client.publish("local", f"x 0.0 y -{STEP} rot 0.0 dt 1.0")
+        client.publish("local", f"x 0.0 y -{STEP} rot 0.0 dt {TIME}")
     elif k == 'a':
         print(k)
-        client.publish("local", f"x -{STEP} y 0.0 rot 0.0 dt 1.0")
+        client.publish("local", f"x -{STEP} y 0.0 rot 0.0 dt {TIME}")
     elif k == "q":
-        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP} dt 1.0")
+        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP} dt {TIME}")
     elif k == "e":
-        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP} dt 1.0")
+        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP} dt {TIME}")
     elif k == " ":
         client.publish("local", "manual_stop")
     elif k == "r":
-        client.publish("local", "crab")
+        client.publish("local", "grab")
     elif k == "f":
         client.publish("local", "release")
 
