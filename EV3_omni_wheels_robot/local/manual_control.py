@@ -47,8 +47,10 @@ client.connect("iot.eclipse.org", 1883, 60)
 handle = open("bl_input.txt")    
 text = handle.read()
 
-STEP = 100.0
-ROT_STEP = 30.0
+STEP_BIG = 100.0
+STEP_SMALL = 10.0
+ROT_STEP_BIG = 45.0
+ROT_STEP_SMALL = 10.0
 TIME  = 1
 
 
@@ -80,26 +82,44 @@ def _onPress(key):
 
     if k == "d":
         print(k)
-        client.publish("local", f"x {STEP} y 0.0 rot 0.0 dt {TIME}")
+        client.publish("local", f"x {STEP_BIG} y 0.0 rot 0.0 dt {TIME}")
     elif k == 'w':
         print(k)
-        client.publish("local", f"x 0.0 y {STEP} rot 0.0 dt {TIME}")
+        client.publish("local", f"x 0.0 y {STEP_BIG} rot 0.0 dt {TIME}")
     elif k == 's':
         print(k)
-        client.publish("local", f"x 0.0 y -{STEP} rot 0.0 dt {TIME}")
+        client.publish("local", f"x 0.0 y -{STEP_BIG} rot 0.0 dt {TIME}")
     elif k == 'a':
         print(k)
-        client.publish("local", f"x -{STEP} y 0.0 rot 0.0 dt {TIME}")
+        client.publish("local", f"x -{STEP_BIG} y 0.0 rot 0.0 dt {TIME}")
     elif k == "q":
-        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP} dt {TIME}")
+        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP_BIG} dt {TIME}")
     elif k == "e":
-        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP} dt {TIME}")
+        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_BIG} dt {TIME}")
     elif k == " ":
         client.publish("local", "manual_stop")
-    elif k == "r":
+    elif k == "z":
         client.publish("local", "grab")
-    elif k == "f":
+    elif k == "x":
         client.publish("local", "release")
+
+    elif k == "h":
+        print(k)
+        client.publish("local", f"x {STEP_SMALL} y 0.0 rot 0.0 dt {TIME}")
+    elif k == 't':
+        print(k)
+        client.publish("local", f"x 0.0 y {STEP_SMALL} rot 0.0 dt {TIME}")
+    elif k == 'g':
+        print(k)
+        client.publish("local", f"x 0.0 y -{STEP_SMALL} rot 0.0 dt {TIME}")
+    elif k == 'f':
+        print(k)
+        client.publish("local", f"x -{STEP_SMALL} y 0.0 rot 0.0 dt {TIME}")
+
+    elif k == "r":
+        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP_SMALL} dt {TIME }")
+    elif k == "y":
+        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_SMALL} dt {TIME }")
 
     # print(f"{key} pressed!")
 

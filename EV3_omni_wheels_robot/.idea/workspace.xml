@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56f3a246-7d46-45fa-997e-903182920303" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" beforeDir="false" afterPath="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local/manual_control.py" beforeDir="false" afterPath="$PROJECT_DIR$/local/manual_control.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,12 +54,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="1171" />
+          <entry key="dummy" value="9" />
+          <entry key="py" value="1286" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="1171" />
+          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="Python" value="1286" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -76,7 +78,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="473">
@@ -88,14 +90,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/local/manual_control.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1057">
-              <caret line="119" column="22" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
+            <state relative-caret-position="427">
+              <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <marker date="1540033729640" expanded="true" signature="112:113" ph="..." />
+                <marker date="1540046321302" expanded="true" signature="112:113" ph="..." />
               </folding>
             </state>
           </provider>
@@ -127,8 +129,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/local/keyboardlistener.py" />
-        <option value="$PROJECT_DIR$/local/manual_control.py" />
         <option value="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" />
+        <option value="$PROJECT_DIR$/local/manual_control.py" />
       </list>
     </option>
   </component>
@@ -281,23 +283,23 @@
     <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/local/manual_control.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1057">
-          <caret line="119" column="22" selection-start-line="119" selection-start-column="22" selection-end-line="119" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-            <marker date="1540033729640" expanded="true" signature="112:113" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
           <caret line="461" column="53" selection-start-line="461" selection-start-column="53" selection-end-line="461" selection-end-column="53" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/local/manual_control.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="52" column="19" selection-start-line="52" selection-start-column="19" selection-end-line="52" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+            <marker date="1540046321302" expanded="true" signature="112:113" ph="..." />
           </folding>
         </state>
       </provider>
