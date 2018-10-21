@@ -12,6 +12,8 @@ import precgyro
 
 SERVER_ADDRESS = "iot.eclipse.org"
 
+CORRECT_WITH_GYRO = True
+
 
 ROTATION_ERROR_MARGIN = 5.0
 
@@ -239,7 +241,7 @@ class Driver:
         rot_after = precgyro.angle()
         error = rot_after - rot_before + rot
 
-        if abs(error) > ROTATION_ERROR_MARGIN:
+        if abs(error) > ROTATION_ERROR_MARGIN and CORRECT_WITH_GYRO:
             self.drive_by_loc_rot(error, 0.5)
 
 
@@ -472,7 +474,7 @@ def on_message(client, userdata, msg):
     client.reinitialise(SERVER_ADDRESS, 1883, 60)
     print("completed MQTT cmd")
 
-
+  global CORRECT_WITH_GYRO
 
   elif m.split(" ")[0] == 'grab':
     print("received MQTT: grab")
@@ -495,6 +497,11 @@ def on_message(client, userdata, msg):
     mC.reset()
   elif m.split(" ")[0] == "calibrate_gyro":
       precgyro.reset()
+  elif m.split(" ")[0] == "disable_correction":
+      CORRECT_WITH_GYRO = False
+  elif m.split(" ")[0] == "enable_correction":
+      CORRECT_WITH_GYRO = True
+
 
 def on_message2(client, userdata, msg):
     m = msg.payload.decode()

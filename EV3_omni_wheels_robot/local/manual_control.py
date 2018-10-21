@@ -131,10 +131,16 @@ def _onPress(key):
 
     elif k == "b":
         client.publish("fastlane", "masterstop")
-    time.sleep(TIME)
     # print(f"{key} pressed!")
 
+    elif k == "k":
+        client.publish("local", "disable_correction")
+    elif k == "l":
+        client.publish("local", "enable_correction")
+    time.sleep(TIME)
     return True
+
+
 
 
 def _onRelease(key):
