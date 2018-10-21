@@ -10,6 +10,7 @@ import paho.mqtt.client as mqtt
 import precgyro
 
 
+SERVER_ADDRESS = "192.168.43.1"
 SERVER_ADDRESS = "iot.eclipse.org"
 
 CORRECT_WITH_GYRO = True
@@ -456,10 +457,10 @@ def on_message(client, userdata, msg):
     #driver.reset_spd_var()
     print("received MQTT: " + m)
 
-    dx = float(m.split(" ")[1].split(".")[0])
-    dy = float(m.split(" ")[3].split(".")[0])
-    rot = float(m.split(" ")[5].split(".")[0])
-    dt = float(m.split(" ")[7].split(".")[0])
+    dx = float(m.split(" ")[1])
+    dy = float(m.split(" ")[3])
+    rot = float(m.split(" ")[5])
+    dt = float(m.split(" ")[7])
     print("taking action of MQTT cmd")
     driver.drive_by_loc_dxdy(dx, dy, dt)
     driver.drive_by_loc_rot(rot, dt)
