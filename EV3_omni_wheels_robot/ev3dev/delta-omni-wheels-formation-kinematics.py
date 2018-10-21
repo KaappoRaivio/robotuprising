@@ -10,8 +10,8 @@ import paho.mqtt.client as mqtt
 import precgyro
 
 
-SERVER_ADDRESS = "iot.eclipse.org"
 SERVER_ADDRESS = "192.168.43.1"
+SERVER_ADDRESS = "iot.eclipse.org"
 
 
 ROTATION_ERROR_MARGIN = 5.0
