@@ -1,6 +1,8 @@
 import paho.mqtt.client as mqtt
 import time
 
+import sys
+
 # The callback for when the client receives a CONNACK response from the server.
 def on_connect(client, userdata, flags, rc):
     print("Connected with result code "+str(rc))
@@ -32,7 +34,7 @@ client.connect("iot.eclipse.org", 1883, 60)
 # manual interface.
 #client.publish("topic/test", "Hello world!")
 
-input_files = ["./movingdata/2.0-rods.txt"]
+input_files = [sys.argv[1]]
 #input_files = ["./movingdata/justwait.txt"]
 
 for f in input_files:
