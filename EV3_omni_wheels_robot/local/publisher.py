@@ -21,6 +21,7 @@ client.on_connect = on_connect
 client.on_message = on_message
 
 client.connect("iot.eclipse.org", 1883, 60)
+#client.connect("localhost", 1883, 60)
 #client.connect("170.252.127.33", 1883, 60)
 #client.connect("localhost", 1883, 60)
 
@@ -31,7 +32,8 @@ client.connect("iot.eclipse.org", 1883, 60)
 # manual interface.
 #client.publish("topic/test", "Hello world!")
 
-input_files = ["beginning_with_labyrinth_orientation.txt", "labyrinth.txt"]
+input_files = ["./movingdata/1.0-maze.txt"]
+#input_files = ["./movingdata/justwait.txt"]
 
 for f in input_files:
 
@@ -40,8 +42,9 @@ for f in input_files:
 
     for line in text.split("\n"):
 
-        client.publish("local", line.strip())
-        time.sleep(int(line.split(" ")[7].split(".")[0]))
+        client.publish("local", line)
+        print("MQTT published: ", line)
+        time.sleep( float(line.split(" ")[-1]) )
 
 
 #client.loop_forever()

@@ -489,6 +489,8 @@ def on_message(client, userdata, msg):
     mA.reset()
     mB.reset()
     mC.reset()
+  elif m.split(" ")[0] == "calibrate_gyro":
+      precgyro.reset()
 
 
 

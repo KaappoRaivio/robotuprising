@@ -128,6 +128,9 @@ def _onPress(key):
         client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_SMALL} dt {TIME }")
     elif k == "o":
         client.publish("local", "reset_rotation")
+
+    elif k == "b":
+        client.publish("local", "self_reset")
     time.sleep(TIME)
     # print(f"{key} pressed!")
 
