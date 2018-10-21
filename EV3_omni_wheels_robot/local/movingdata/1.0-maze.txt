@@ -14,4 +14,4 @@ x -360.0 y 0.0 rot 0.0 dt 3.5
 x 0.0 y 635.0 rot 0.0 dt 6.2
 x 1450.0 y 0.0 rot 0.0 dt 14.3
 x 0.0 y -75 rot 0.0 dt 1
-reset_rotation dt 1.0
+

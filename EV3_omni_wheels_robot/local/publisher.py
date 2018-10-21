@@ -32,7 +32,7 @@ client.connect("iot.eclipse.org", 1883, 60)
 # manual interface.
 #client.publish("topic/test", "Hello world!")
 
-input_files = ["./movingdata/1.0-maze.txt"]
+input_files = ["./movingdata/2.0-rods.txt"]
 #input_files = ["./movingdata/justwait.txt"]
 
 for f in input_files:
