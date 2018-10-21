@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56f3a246-7d46-45fa-997e-903182920303" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" beforeDir="false" afterPath="$PROJECT_DIR$/ev3dev/delta-omni-wheels-formation-kinematics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local/movingdata/1.0-maze.txt" beforeDir="false" afterPath="$PROJECT_DIR$/local/movingdata/1.0-maze.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
