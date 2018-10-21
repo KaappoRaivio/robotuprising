@@ -10,7 +10,7 @@ Hardcoded path in the maze.
 
 ### Task 2
 
-Hardcoded path through the iron forest.
+Hardcoded path through the iron forest. Path obtained using pathfinder open source library.
 
 ### Task 3
 
