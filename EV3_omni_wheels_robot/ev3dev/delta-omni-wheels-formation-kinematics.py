@@ -480,7 +480,9 @@ def on_message(client, userdata, msg):
 
   elif m.split(" ")[0] == 'grab':
     print("received MQTT: grab")
-    driver.motor_grabber.run_to_abs_pos(position_sp=driver.motor_grabber.count_per_rot/-5, speed_sp=driver.motor_grabber.count_per_rot)
+    # driver.motor_grabber.run_to_abs_pos(position_sp=driver.motor_grabber.count_per_rot/-5, speed_sp=driver.motor_grabber.count_per_rot)
+    driver.motor_grabber.run_to_abs_pos(position_sp=driver.motor_grabber.count_per_rot/-2, speed_sp=driver.motor_grabber.count_per_rot)
+
 
   elif m.split(" ")[0] == 'release':
     driver.motor_grabber.run_to_abs_pos(position_sp=0, speed_sp=driver.motor_grabber.count_per_rot)
