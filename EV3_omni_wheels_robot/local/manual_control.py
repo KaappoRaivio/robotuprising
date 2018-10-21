@@ -52,10 +52,10 @@ client.connect("iot.eclipse.org", 1883, 60)
 handle = open("bl_input.txt")    
 text = handle.read()
 
-STEP_BIG = 100.0
-STEP_SMALL = 10.0
+STEP_BIG = 200.0
+STEP_SMALL = 50.0
 ROT_STEP_BIG = 45.0
-ROT_STEP_SMALL = 10.0
+ROT_STEP_SMALL = 15.0
 TIME  = 1
 
 
@@ -137,7 +137,11 @@ def _onPress(key):
         client.publish("local", "disable_correction")
     elif k == "l":
         client.publish("local", "enable_correction")
+    elif k == "ö":
+        client.publish("local", f"x 0.0 y 1000.0 rot 0.0 dt 5.0")
     time.sleep(TIME)
+
+
     return True
 
 
