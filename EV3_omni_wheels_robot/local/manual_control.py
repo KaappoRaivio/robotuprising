@@ -130,7 +130,7 @@ def _onPress(key):
         client.publish("local", "reset_rotation")
 
     elif k == "b":
-        client.publish("local", "self_reset")
+        client.publish("fastlane", "masterstop")
     time.sleep(TIME)
     # print(f"{key} pressed!")
 

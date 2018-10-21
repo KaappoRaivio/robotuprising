@@ -10,7 +10,7 @@ import paho.mqtt.client as mqtt
 import precgyro
 
 
-
+SERVER_ADDRESS = "iot.eclipse.org"
 
 
 ROTATION_ERROR_MARGIN = 5.0
@@ -439,6 +439,10 @@ def on_connect(client, userdata, flags, rc):
   print("Connected with result code "+str(rc))
   client.subscribe("local")
 
+def on_connect2(client2, userdata, flags, rc):
+    print("connect2: Connected with result code " + str(rc))
+    client2.subscribe("fastlane")
+
 
 def on_message(client, userdata, msg):
   #if msg.payload.decode() == "Hello world!":
@@ -465,7 +469,7 @@ def on_message(client, userdata, msg):
     driver.mA.stop(stop_action='hold')
     driver.mB.stop(stop_action='hold')
     driver.mC.stop(stop_action='hold')
-    client.reinitialise("iot.eclipse.org", 1883, 60)
+    client.reinitialise(SERVER_ADDRESS, 1883, 60)
     print("completed MQTT cmd")
 
 
@@ -485,13 +489,21 @@ def on_message(client, userdata, msg):
     time.sleep( float( m.split(" ")[-1] ) )
 
   elif m.split(" ")[0] == "self_reset":
-    client.reinitialise("iot.eclipse.org", 1883, 60)
+    client.reinitialise(SERVER_ADDRESS, 1883, 60)
     mA.reset()
     mB.reset()
     mC.reset()
   elif m.split(" ")[0] == "calibrate_gyro":
       precgyro.reset()
 
+def on_message2(client, userdata, msg):
+    m = msg.payload.decode()
+
+    if m == "masterstop":
+        client.reinitialise(SERVER_ADDRESS, 1883, 60)
+        mA.reset()
+        mB.reset()
+        mC.reset()
 
 
 
@@ -557,10 +569,20 @@ if len(sys.argv) > 1:
 
 
 client = mqtt.Client()
-client.connect("iot.eclipse.org", 1883, 60)
+client.connect(SERVER_ADDRESS, 1883, 60)
 
 client.on_connect = on_connect
 client.on_message = on_message
 
 client.loop_forever()
+
+client2 = mqtt.Client()
+client2.connect(SERVER_ADDRESS, 1883, 60)
+
+client2.on_connect = on_connect2
+client2.on_message = on_message2
+
+client2.loop_forever()
+
+
 
