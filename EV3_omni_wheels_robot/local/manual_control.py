@@ -56,7 +56,8 @@ STEP_BIG = 200.0
 STEP_SMALL = 50.0
 ROT_STEP_BIG = 45.0
 ROT_STEP_SMALL = 15.0
-TIME  = 1
+ROT_TIME_SMALL = 0.25
+TIME  = STEP_BIG / 250.0
 
 
 fd = sys.stdin.fileno()
@@ -98,11 +99,10 @@ def _onPress(key):
         print(k)
         client.publish("local", f"x -{STEP_BIG} y 0.0 rot 0.0 dt {TIME}")
     elif k == "q":
-        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP_BIG} dt {TIME}")
+        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP_BIG} dt {ROT_TIME_SMALL}")
     elif k == "e":
-        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_BIG} dt {TIME}")
-    elif k == " ":
-        client.publish("local", "manual_stop")
+        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_BIG} dt {ROT_TIME_SMALL}")
+
 
     elif k == "z":
         client.publish("local", "grab")
@@ -123,9 +123,9 @@ def _onPress(key):
         client.publish("local", f"x -{STEP_SMALL} y 0.0 rot 0.0 dt {TIME}")
 
     elif k == "r":
-        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP_SMALL} dt {TIME }")
+        client.publish("local", f"x 0.0 y 0.0 rot {ROT_STEP_SMALL} dt {ROT_TIME_SMALL }")
     elif k == "y":
-        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_SMALL} dt {TIME }")
+        client.publish("local", f"x 0.0 y 0.0 rot -{ROT_STEP_SMALL} dt {ROT_TIME_SMALL}")
     elif k == "o":
         client.publish("local", "reset_rotation")
 
@@ -139,7 +139,14 @@ def _onPress(key):
         client.publish("local", "enable_correction")
     elif k == "ö":
         client.publish("local", f"x 0.0 y 1000.0 rot 0.0 dt 5.0")
+    elif k == "c":
+        client.publish("local", f"x 0.0 y 0.0 rot -{180} dt {TIME }")
+    elif k == "i":
+        client.publish("local", f"x 0.0 y 0.0 rot -{90} dt {TIME }")
+    elif k == "u":
+        client.publish("local", f"x 0.0 y 0.0 rot {90} dt {TIME }")
     time.sleep(TIME)
+
 
 
     return True
