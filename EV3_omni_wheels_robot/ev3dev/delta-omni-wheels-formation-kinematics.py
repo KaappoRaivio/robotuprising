@@ -448,6 +448,7 @@ def on_connect2(client2, userdata, flags, rc):
 
 
 def on_message(client, userdata, msg):
+  global CORRECT_WITH_GYRO
   #if msg.payload.decode() == "Hello world!":
   #  print("Yes!")
   #  client.disconnect()
@@ -475,7 +476,7 @@ def on_message(client, userdata, msg):
     client.reinitialise(SERVER_ADDRESS, 1883, 60)
     print("completed MQTT cmd")
 
-  global CORRECT_WITH_GYRO
+
 
   elif m.split(" ")[0] == 'grab':
     print("received MQTT: grab")
