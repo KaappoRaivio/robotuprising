@@ -4,7 +4,7 @@ Our approach is a hardcoded solution with remote controlled intervention if necc
 
 We use MQTT protocol to communicate with the robot from remote. The remote files and path models can be found in the "local" folder, the robot's files in the "ev3" folder.
 
-We wanted to use A* pathfinding in place of hardcoding, but could not achieve a sufficient exactness level. However, the Javascript files for this approach can also be found in this repository.
+We wanted to use A* pathfinding in place of hardcoding, but could not achieve a sufficient exactness level. However, the Javascript files for this approach can also be found in this repository in the "pathfinding" folder.
 
 ### Task 1
 
